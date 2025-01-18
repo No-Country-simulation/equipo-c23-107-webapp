@@ -1,7 +1,12 @@
-import React from "react";
+import Logo from "../components/Logo";
 
 const HomePage = () => {
-  return <div className="underline">Este es Home Page</div>;
+  return (
+    <>
+      <Logo/>
+      <div className="underline">Este es Home Page</div>
+    </>
+  );
 };
 
 export default HomePage;
