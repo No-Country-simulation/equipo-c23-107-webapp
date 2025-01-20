@@ -1,11 +1,12 @@
-import Logo from "../components/Logo";
+import Layout from '../layouts/Layout';
+import Logo from '../components/Logo';
 
 const HomePage = () => {
   return (
-    <>
-      <Logo/>
-      <div className="underline">Este es Home Page</div>
-    </>
+    <Layout>
+      <Logo />
+      <div className="underline">HomePage</div>
+    </Layout>
   );
 };
 
