@@ -3,7 +3,6 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import RecetaPage from "./pages/RecetaPage";
 import FeedPage from "./pages/FeedPage";
-import "./App.css";
 
 function App() {
   return (
