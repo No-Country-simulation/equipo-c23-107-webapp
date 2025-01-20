@@ -6,6 +6,7 @@ export default {
       colors: {
         gris: '#737072',
         azulOscuro: '#5F95D7',
+        azulClaro: '#A0C3EE',
         celesteClaro: '#C1DDFF',
         amarilloOscuro: '#FDB900',
         amarilloClaro: '#FFEEC1',
