@@ -13,6 +13,9 @@ export default {
         amarilloLogo: '#F6E77C',
         cremaClaro: '#FFFAED',
       },
+      gridTemplateRows: {
+        layout: 'auto 1fr auto',
+      },
     },
   },
   plugins: [],
