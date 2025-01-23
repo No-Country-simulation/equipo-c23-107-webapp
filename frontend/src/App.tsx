@@ -3,24 +3,26 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import RecetaPage from "./pages/RecetaPage";
 import FeedPage from "./pages/FeedPage";
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          {/* Página principal */}
-          <Route path="/" element={<HomePage />} />
+    <Router>
+      <Routes>
+        {/* Página principal */}
+        <Route path="/" element={<HomePage />} />
 
-          {/* Autenticación */}
+        {/* Autenticación */}
 
-          {/* Usuario autenticado */}
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/create-recipe" element={<RecetaPage />} />
-          <Route path="/feed" element={<FeedPage />} />
-        </Routes>
-      </Router>
-    </>
+        {/* Usuario autenticado */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/create-recipe" element={<RecetaPage />} />
+        <Route path="/feed" element={<FeedPage />} />
+      </Routes>
+    </Router>
   );
 }
 
