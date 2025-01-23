@@ -6,7 +6,7 @@ const RecetaPage = () => {
   return (
     <Layout>
       <div className="p-4">
-        <BGImage svgUrl="../../public/fondo1.svg" />
+        <BGImage svgUrl="/fondo1.svg" />
         <IngredientForm />
       </div>
     </Layout>
