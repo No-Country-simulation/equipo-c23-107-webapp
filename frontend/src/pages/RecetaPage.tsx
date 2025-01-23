@@ -5,7 +5,7 @@ import BGImage from "../features/Header/BGImage";
 const RecetaPage = () => {
   return (
     <div style={{ padding: "16px" }}>
-      <BGImage svgUrl="../../public/fondo1.svg" />
+      <BGImage svgUrl="/fondo1.svg" />
       <IngredientForm />
     </div>
   );

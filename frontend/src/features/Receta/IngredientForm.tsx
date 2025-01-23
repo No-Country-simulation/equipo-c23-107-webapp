@@ -5,7 +5,8 @@ import TiempoInput from "./TiempoInput";
 import StepComponent from "./StepComponent";
 import RecipeTitle from "./RecipeTitle";
 import RecipeText from "./RecipeText";
-import RecipePhotoUploader from "./RecipePhotoUploader";
+
+import ImageUploader from "./ImageUploader";
 
 interface Ingredient {
   id: number;
@@ -32,11 +33,10 @@ const IngredientForm: React.FC = () => {
   const [title, setTitle] = useState("");
   const [recipeText, setRecipeText] = useState("");
 
-  const [photo, setPhoto] = useState<File | null>(null);
+  /*   const [photo, setPhoto] = useState<File | null>(null); */
 
   const handleTiempoChange = (value: string) => {
     console.log("Tiempo ingresado:", value);
-    console.log("Foto:", photo);
   };
 
   const addIngredient = () => {
@@ -99,9 +99,9 @@ const IngredientForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="p-6 bg-white rounded-md shadow-md">
       <h2 className="text-azulOscuro text-2xl font-bold mb-4">Crear Receta</h2>
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-4">
         <div className="w-1/2">
-          <RecipePhotoUploader onPhotoChange={setPhoto} />
+          <ImageUploader />
         </div>
         <div className="w-1/2">
           <RecipeTitle value={title} onChange={setTitle} />
