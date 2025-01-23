@@ -20,6 +20,12 @@ const Header = () => {
         <Link to="/login" className="text-center bg-celesteClaro py-2 text-black min-w-44 rounded-lg border-2 border-azulOscuro">
           Iniciar Sesión
         </Link>
+        <Link to="/profile" className="text-center bg-celesteClaro py-2 text-black min-w-44 rounded-lg border-2 border-azulOscuro">
+          Ir al perfil
+        </Link>
+        <Link to="/create-recipe" className="text-center bg-celesteClaro py-2 text-black min-w-44 rounded-lg border-2 border-azulOscuro">
+          Crear Receta
+        </Link>
       </div>
     </header>
   );
