@@ -6,7 +6,6 @@ import FeedPage from "./pages/FeedPage";
 
 function App() {
   return (
-    <>
       <Router>
         <Routes>
           {/* Página principal */}
@@ -20,7 +19,6 @@ function App() {
           <Route path="/feed" element={<FeedPage />} />
         </Routes>
       </Router>
-    </>
   );
 }
 
