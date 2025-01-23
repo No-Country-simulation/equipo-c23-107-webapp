@@ -11,7 +11,7 @@ const Header = () => {
       <p className="border-2 px-4 rounded">Idiomas</p>
       <div className="flex gap-2">
         <button className="text-center bg-azulOscuro py-2 text-white min-w-44 rounded-lg cursor-pointer" onClick={() => setModalOpen(!modalOpen)}>
-          Probar Inicio
+          Probar Login
         </button>
 
         <Link to="/register" className="text-center bg-azulOscuro py-2 text-white min-w-44 rounded-lg">
