@@ -12,6 +12,8 @@ export default {
         amarilloClaro: '#FFEEC1',
         amarilloLogo: '#F6E77C',
         cremaClaro: '#FFFAED',
+        celesteBoton: '#F1F6FD',
+        botonPresionado: '#2F75CA',
       },
       gridTemplateRows: {
         layout: 'auto 1fr auto',
