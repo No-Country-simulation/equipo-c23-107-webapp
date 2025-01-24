@@ -1,6 +1,8 @@
 import { Exome } from "exome";
 import { supabase } from "../service/AuthClient";
 
+// const = [token, setToken] = useState<string>("");
+
 class AuthStore extends Exome {
   public token: string = "";
   public loggedIn: boolean = true;
@@ -10,6 +12,17 @@ class AuthStore extends Exome {
     this.token = token;
   }
 
+  public async checkToken() {
+    const { data } = await supabase.auth.getSession();
+    this.setToken(data.session?.access_token || "");
+    if (this.token === "") {
+      console.log("No token");
+      this.setLoggedIn(false);
+    } else {
+      console.log("Token");
+      this.setLoggedIn(true);
+    }
+  }
   public setLoggedIn(loggedIn: boolean) {
     this.loggedIn = loggedIn;
   }
@@ -36,6 +49,20 @@ class AuthStore extends Exome {
     }
   }
 
+  public async loginWithGoogle() {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+    if (error) {
+      console.log(error.message);
+    } else {
+      const { data } = await supabase.auth.getSession();
+      this.setToken(data.session?.access_token || "");
+      this.setLoggedIn(true);
+      console.log(this.token);
+    }
+  }
+
   public async logout() {
     const { error } = await supabase.auth.signOut();
     if (error) {
@@ -46,15 +73,32 @@ class AuthStore extends Exome {
     }
   }
 
-  public async signUp(email: string, password: string) {
+  public async signUp(email: string, password: string, username: string) {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        data: { username },
+      },
     });
     if (error) {
       console.log(error.message);
     } else {
       console.log(data);
+    }
+  }
+
+  public async singUpWithGoogle() {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+    if (error) {
+      console.log(error.message);
+    } else {
+      const { data } = await supabase.auth.getSession();
+      this.setToken(data.session?.access_token || "");
+      this.setLoggedIn(true);
+      console.log(this.token);
     }
   }
 }
