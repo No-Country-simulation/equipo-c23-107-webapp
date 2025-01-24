@@ -1,4 +1,13 @@
 import express from "express";
+import { AppDataSource } from "./config/dataSource";
+
+AppDataSource.initialize()
+.then(() => {
+  console.log("Database connected");
+})
+.catch((error) => {
+  console.error("Error connecting to database", error);
+});
 
 export const app = express();
 
