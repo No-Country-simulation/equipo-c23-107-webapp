@@ -17,7 +17,7 @@ const Login = () => {
   return (
     <Layout>
       <div className="flex items-center justify-center min-h-screen">
-        <div className="w-full max-w-md p-8  rounded-lg  border-2 border-black">
+        <div className="w-full max-w-md p-8  rounded-lg  border-2 border-black bg-white">
           <h2 className="mb-6 text-lg font-bold text-center text-gray-800">Ingresa tus datos para iniciar sesión:</h2>
           <form className="flex flex-col items-center space-y-4" onSubmit={ handleSubmit }>
             <div className="max-w-72">

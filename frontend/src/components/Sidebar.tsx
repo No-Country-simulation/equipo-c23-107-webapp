@@ -2,7 +2,7 @@ import Logo from './Logo';
 
 const Sidebar = () => {
   return (
-    <aside className="flex flex-col items-center justify-center h-full">
+    <aside className="flex flex-col items-center justify-center h-full min-w-40 md:min-w-72">
       <Logo />
       <div className="w-full max-w-md rounded-lg">
         <form className="flex flex-col items-center space-y-4">
