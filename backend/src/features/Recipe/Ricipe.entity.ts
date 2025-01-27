@@ -2,31 +2,36 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  OneToOne,
   OneToMany,
+  ManyToOne,
+  ManyToMany,
+  JoinTable,
 } from "typeorm";
 import { User } from "../User/user.entity";
 import { Ingredient } from "../Ingredient/Ingredient.entity";
+import { Step } from "../Step/Step.entity";
 
 @Entity()
 export class Recipe {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: "varchar", length: 100 })
-  @OneToOne(() => User)
-  userid: User["id"];
+  @ManyToOne(() => User, (user) => user.id, {
+    nullable: false,
+    onDelete: "CASCADE",
+  })
+  user: User;
 
-  @Column({ type: "varchar", length: 300 })
+  @Column()
   title: string;
 
-  @Column({ type: "varchar", length: 500 })
+  @Column("text")
   description: string;
 
-  @Column({ type: "varchar", length: 100 })
-  @OneToMany(() => Ingredient, (ingredient) => ingredient.id, { cascade: true })
-  ingredient: Ingredient;
+  @ManyToMany(() => Ingredient)
+  @JoinTable()
+  ingredients: Ingredient[];
 
-  @Column({ type: "varchar", length: 255 })
-  step: string;
+  @OneToMany(() => Step, (step) => step.recipes)
+  steps: Step[];
 }

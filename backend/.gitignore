@@ -6,3 +6,4 @@ pnpm-lock.yaml
 ctrf
 
 uploads
+.env

@@ -1,13 +1,18 @@
 import { DataSource } from "typeorm";
+require("dotenv").config();
 
 export const AppDataSource = new DataSource({
-  type: "mysql",
-  host: "localhost",
-  port: 3306,
-  username: "test_user",
-  password: "test_pass",
-  database: "test_db",
+  //type: "mysql",
+  type: "postgres",
+  url: process.env.SUPABASE_URL,
+  //port: process.env.SUPABASE_PORT
+  //  ? parseInt(process.env.SUPABASE_PORT, 10)
+  //  : 6543,
+  // username: process.env.SUPABASE_USER,
+  // password: process.env.SUPABASE_PASSWORD,
+  //database: process.env.SUPABASE_DB,
   entities: ["src/**/*.entity.ts"],
-  logging: true,
+  //migrations: ["src/migrations/*.ts"],
+  logging: false,
   synchronize: true,
 });

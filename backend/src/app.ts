@@ -1,27 +1,25 @@
 import express from "express";
 import imagesRouter from "./features/Images/Images.routes";
 import { AppDataSource } from "./config/dataSource";
+require("dotenv").config();
 
 AppDataSource.initialize()
-.then(() => {
-  console.log("Database connected");
-})
-.catch((error) => {
-  console.error("Error connecting to database", error);
-});
+  .then(() => {
+    console.log("Database connected to " + process.env.SUPABASE_URL);
+  })
+  .catch((error) => {
+    console.error("Error connecting to " + process.env.SUPABASE_URL, error);
+  });
 
 export const app = express();
 
 // Analizar solicitudes con datos JSON en el cuerpo
-app.use(express.json())
+app.use(express.json());
 
 // Analizar solicitudes con datos de formulario en el cuerpo
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }));
 
-app.use(
-  '/api/v1',
-  imagesRouter
- )
+app.use("/api/v1", imagesRouter);
 
 export const server = () => {
   app.listen(3000, () => {

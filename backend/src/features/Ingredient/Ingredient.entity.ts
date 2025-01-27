@@ -5,6 +5,6 @@ export class Ingredient {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: "varchar", length: 100 })
+  @Column({ unique: true })
   name: string;
 }
