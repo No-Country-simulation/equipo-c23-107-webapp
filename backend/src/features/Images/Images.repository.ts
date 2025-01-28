@@ -61,6 +61,20 @@ class ImageRepository {
         return { success: false, message: error.message };
       }
     }
+
+    async deleteImage(id: number) {
+      try {
+        const imageRepository = AppDataSource.getRepository(Images);                
+        const image = await imageRepository.findOne({ where: { id } });  
+        if (!image) {
+          return { success: false, message: "Imagen no encontrada" };
+        }        
+        await imageRepository.remove(image);  
+        return { success: true, data: image };
+      } catch (error: any) {
+        return { success: false, message: error.message };
+      }
+    }
   }
   
   export default new ImageRepository();

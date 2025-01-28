@@ -54,6 +54,12 @@ class ImagesController {
       res.status(500).json(result);
     }
   }
+
+  async deleteImage(req: Request, res: Response) {
+    const { id } = req.params;
+    const result = await ImagesRepository.deleteImage(parseInt(id));
+    res.json(result);
+  }
 }
 
 export const imagesController = new ImagesController();
