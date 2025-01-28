@@ -2,20 +2,19 @@ import Logo from './Logo';
 
 const Sidebar = () => {
   return (
-    <aside className="flex flex-col items-center justify-center h-full min-w-40 md:min-w-72">
+    <aside className="flex flex-col items-center justify-center h-full min-w-40 md:min-w-72 bg-white">
       <Logo />
       <div className="w-full max-w-md rounded-lg">
-        <form className="flex flex-col items-center space-y-4">
+        <form className="flex flex-col items-center ">
           <div className="max-w-48">
-            <div className="w-full">
-              
+            <div className="w-full"> 
               <input
                 type="text"
                 id="search"
                 name="search"
                 aria-label="Buscar"
                 aria-describedby="search-help"
-                className="w-full bg-celesteClaro px-3 py-2 mt-1 text-gray-800 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                className="w-full bg-celesteClaro px-3 py-2  text-gray-800 border rounded-lg focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Escribe lo que buscas"
               />
             </div>

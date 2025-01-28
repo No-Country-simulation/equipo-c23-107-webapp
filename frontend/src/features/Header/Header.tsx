@@ -14,7 +14,7 @@ const Header = () => {
 
  const links = Headerlinks(loggedIn); 
   return (
-    <header className="flex justify-end py-2 container ">   
+    <header className="flex justify-end p-4 ">   
       <div className="flex gap-2">
         {links.map(({ to, text, extraClass = '' }) => (
           <NavLink
