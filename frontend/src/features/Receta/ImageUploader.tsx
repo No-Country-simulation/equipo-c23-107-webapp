@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-const ImageUploader: React.FC = () => {
+interface ImageUploaderProps {
+  onChange: (image: string | null) => void;
+}
+
+const ImageUploader: React.FC<ImageUploaderProps> = ({ onChange }) => {
   const [image, setImage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,13 +24,16 @@ const ImageUploader: React.FC = () => {
   const processFile = (file: File) => {
     if (!file.type.startsWith("image/")) {
       setError("Por favor, carga solo imágenes.");
+      onChange(null);
       return;
     }
     setError(null);
 
     const reader = new FileReader();
     reader.onload = () => {
-      setImage(reader.result as string);
+      const result = reader.result as string;
+      setImage(result);
+      onChange(result); // Notifica al formulario principal.
     };
     reader.readAsDataURL(file);
   };

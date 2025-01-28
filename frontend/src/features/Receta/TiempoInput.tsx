@@ -9,9 +9,11 @@ const TiempoInput: React.FC<TiempoInputProps> = ({ onChange }) => {
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    setError(null); // Limpiar error mientras se escribe
-    onChange(e.target.value); // Notificar al padre del cambio
+    const newValue = e.target.value;
+
+    setValue(newValue);
+    setError(null);
+    onChange(newValue);
   };
 
   const handleBlur = () => {

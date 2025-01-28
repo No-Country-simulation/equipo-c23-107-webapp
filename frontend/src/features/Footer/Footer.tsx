@@ -5,31 +5,31 @@ import Logo from "../../components/Logo";
 const Footer: React.FC = () => {
   const footerLinks = [
     {
-      logo: "../../../public/Ayuda_logo.svg",
+      logo: "/Ayuda_logo.svg",
       text: "Ayuda",
       link: "/ayuda",
     },
     {
-      logo: "../../../public/Comunidad.svg",
+      logo: "/Comunidad.svg",
       text: "Normas de la Comunidad",
       link: "/normas",
     },
     {
-      logo: "../../../public/Terminos.svg",
+      logo: "/Terminos.svg",
       text: "Términos y condiciones",
       link: "/terminos",
     },
     {
-      logo: "../../../public/Pregunta.svg",
+      logo: "/Pregunta.svg",
       text: "Preguntas Frecuentes",
       link: "/preguntas",
     },
     {
-      logo: "../../../public/Privacidad.svg",
+      logo: "/Privacidad.svg",
       text: "Políticas de Privacidad",
       link: "/politicas",
     },
-    { logo: "../../../public/Soporte.svg", text: "Soporte", link: "/soporte" },
+    { logo: "/Soporte.svg", text: "Soporte", link: "/soporte" },
   ];
 
   return (
@@ -56,12 +56,8 @@ const Footer: React.FC = () => {
             />
           ))}
           <div className="flex justify-end gap-4">
-            <img
-              src="../../../public/Instagram.svg"
-              alt="instagram"
-              className="w-10 h-10"
-            />
-            <img src="../../../public/FB.svg" alt="FB" className="w-10 h-10" />
+            <img src="/Instagram.svg" alt="instagram" className="w-10 h-10" />
+            <img src="/FB.svg" alt="FB" className="w-10 h-10" />
           </div>
 
           <p className="text-black ms-auto">Copyright © Lasrecetasdelanona</p>

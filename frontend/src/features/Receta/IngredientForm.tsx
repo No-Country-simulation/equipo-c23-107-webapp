@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import IngredientInput from "./IngredientInput";
 import ComensalesInput from "./ComensalesInput";
 import TiempoInput from "./TiempoInput";
@@ -6,7 +7,6 @@ import StepComponent from "./StepComponent";
 import RecipeTitle from "./RecipeTitle";
 import RecipeText from "./RecipeText";
 import ElegirPais from "./ElegirPais";
-
 import ImageUploader from "./ImageUploader";
 
 interface Ingredient {
@@ -21,11 +21,14 @@ interface StepData {
 }
 
 const IngredientForm: React.FC = () => {
+  const navigate = useNavigate();
   const [ingredients, setIngredients] = useState<Ingredient[]>([
     { id: 1, value: "", quantity: "" },
     { id: 2, value: "", quantity: "" },
   ]);
   const [comensales, setComensales] = useState(1);
+  const [tiempoTotal, setTiempoTotal] = useState<string>("");
+
   const [steps, setSteps] = useState<StepData[]>([
     { text: "", image: null },
     { text: "", image: null },
@@ -35,13 +38,18 @@ const IngredientForm: React.FC = () => {
   const [recipeText, setRecipeText] = useState("");
 
   const [selectedCountry, setSelectedCountry] = useState("");
+  const [image, setImage] = useState<string | null>(null);
+
+  const handleTiempoChange = (value: string) => {
+    setTiempoTotal(value);
+  };
 
   const handleCountryChange = (
     selectedCountry: { value: string; label: string } | null
   ) => {
     if (selectedCountry) {
-      setSelectedCountry(selectedCountry.value);
-      console.log("País seleccionado:", selectedCountry.value);
+      setSelectedCountry(selectedCountry.label);
+      console.log("País seleccionado:", selectedCountry.label);
     } else {
       setSelectedCountry("");
       console.log("Ningún país seleccionado");
@@ -49,10 +57,6 @@ const IngredientForm: React.FC = () => {
   };
 
   /*   const [photo, setPhoto] = useState<File | null>(null); */
-
-  const handleTiempoChange = (value: string) => {
-    console.log("Tiempo ingresado:", value);
-  };
 
   const addIngredient = () => {
     setIngredients((prev) => [
@@ -107,8 +111,18 @@ const IngredientForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Ingredientes:", ingredients);
-    console.log("Pasos:", steps);
+    const recipeData = {
+      title,
+      recipeText,
+      ingredients,
+      steps,
+      comensales,
+      selectedCountry,
+      image,
+      tiempoTotal,
+    };
+    console.log("Datos de la receta cargada:", recipeData);
+    navigate("/vista-previa", { state: recipeData });
   };
 
   return (
@@ -122,7 +136,7 @@ const IngredientForm: React.FC = () => {
       >
         <div className="flex justify-center gap-4">
           <div className="w-1/2">
-            <ImageUploader />
+            <ImageUploader onChange={setImage} />
           </div>
           <div className="w-1/2">
             <RecipeTitle value={title} onChange={setTitle} />
