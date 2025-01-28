@@ -12,6 +12,16 @@ class ImageRepository {
       }
     }
 
+    async getImageById(id: number) {
+      try {
+        const imageRepository = AppDataSource.getRepository(Images);
+        const image = await imageRepository.findOne({ where: { id } });
+        return { success: true, data: image };
+      } catch (error: any) {
+        return { success: false, message: error.message };
+      }
+    }
+
     async createImage(url: string, title: string) {
       try {
         const imageRepository = AppDataSource.getRepository(Images);

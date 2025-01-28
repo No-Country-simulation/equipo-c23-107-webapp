@@ -6,6 +6,12 @@ class ImagesController {
     const result = await ImagesRepository.getAllImages();
     res.json(result);
   }
+  
+  async getImageById(req: Request, res: Response) {
+    const { id } = req.params;
+    const result = await ImagesRepository.getImageById(parseInt(id));
+    res.json(result);
+  }
 
   async createImage(req: Request, res: Response) {        
     if (!req.body) {
