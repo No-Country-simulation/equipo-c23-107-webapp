@@ -37,6 +37,30 @@ class ImageRepository {
         return { success: false, message: error.message };
       }
     }
+
+    async updateImage(id: number, url: string, title: string) {
+      try {
+        const imageRepository = AppDataSource.getRepository(Images);
+        
+        // Buscar la imagen
+        const image = await imageRepository.findOne({ where: { id } });
+  
+        if (!image) {
+          return { success: false, message: "Imagen no encontrada" };
+        }
+  
+        // Actualizar la imagen
+        image.URL = url;
+        image.title = title;
+  
+        // Guardar en la base de datos
+        await imageRepository.save(image);
+  
+        return { success: true, data: image };
+      } catch (error: any) {
+        return { success: false, message: error.message };
+      }
+    }
   }
   
   export default new ImageRepository();

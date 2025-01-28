@@ -6,7 +6,7 @@ class ImagesController {
     const result = await ImagesRepository.getAllImages();
     res.json(result);
   }
-  
+
   async getImageById(req: Request, res: Response) {
     const { id } = req.params;
     const result = await ImagesRepository.getImageById(parseInt(id));
@@ -31,6 +31,25 @@ class ImagesController {
     if (result.success) {
       console.log("Imagen creada con éxito");
       res.status(201).json(result);
+    } else {
+      res.status(500).json(result);
+    }
+  }
+
+  async updateImage(req: Request, res: Response) {
+    const { id } = req.params;
+    const { url, title } = req.body;
+
+    if (!url || !title) {
+      res.status(400).json({ success: false, message: "URL y título son obligatorios" });
+      return
+    }
+
+    const result = await ImagesRepository.updateImage(parseInt(id), url, title);
+    
+    if (result.success) {
+      console.log("Imagen actualizada con éxito");
+      res.json(result);
     } else {
       res.status(500).json(result);
     }

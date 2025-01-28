@@ -6,5 +6,6 @@ const imagesRouter = Router();
 imagesRouter.get("/images", imagesController.getAllImages);
 imagesRouter.get("/images/:id", imagesController.getImageById);
 imagesRouter.post("/images", imagesController.createImage);
+imagesRouter.put("/images/:id", imagesController.updateImage);
 
 export default imagesRouter;
