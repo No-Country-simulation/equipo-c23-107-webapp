@@ -25,6 +25,9 @@ const PreviewRecipe: React.FC = () => {
 
   return (
     <Layout>
+      <h2 className="text-azulOscuro text-3xl font-bold mb-4 -mt-6 ms-4">
+        Tu Receta
+      </h2>
       <div className="p-6 bg-white rounded-md shadow-md max-w-5xl mx-auto">
         <div className="grid grid-cols-2 gap-8">
           <div className="flex flex-col items-center">
@@ -56,8 +59,8 @@ const PreviewRecipe: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col">
-            <h1 className="text-azulOscuro text-3xl font-bold mb-4">{title}</h1>
+          <div className="flex flex-col mb-5">
+            <h1 className="text-black text-2xl font-bold mb-4">{title}</h1>
             <p className="text-gray-700 mb-6">{recipeText}</p>
             <h3 className="text-lg font-semibold mb-4">Pasos:</h3>
             <ol className="space-y-6">
