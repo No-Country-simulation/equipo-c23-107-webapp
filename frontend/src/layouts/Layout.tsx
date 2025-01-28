@@ -10,20 +10,18 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen grid grid-rows-layout mx-auto ">
+    <div className="min-h-screen grid grid-rows-layout ">
       <Header />
       <div className="flex flex-wrap">
-        <div >
-          <div className="sticky top-0 max-h-screen">
-            <Sidebar />
-          </div>
+        <div className="md:sticky md:top-0 md:max-h-screen border-r-4 ">
+          <Sidebar />
         </div>
-        <div className="w-7/12 md:w-9/12 p-4 border-l-4 ">
+        <div className=" md:w-9/12 px-4 py-2  ">
           <BGImage svgUrl="/fondo1.svg" />
           <main>{children}</main>
         </div>
       </div>
-      <Footer />  
+      <Footer />
     </div>
   );  
 };

@@ -1,12 +1,11 @@
 import { useStore } from 'exome/react';
 import { authStore } from '../../core/store/AuthStore';
-import LoginModal from '../LoginModal/LoginModal';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 import Headerlinks from './HeaderLinks';
 
 const Header = () => {
-  const { modalOpen, loggedIn, checkToken } = useStore(authStore);
+  const { loggedIn, checkToken } = useStore(authStore);
 
   useEffect(() => {
     checkToken();
@@ -15,9 +14,7 @@ const Header = () => {
 
  const links = Headerlinks(loggedIn); 
   return (
-    <header className="flex flex-1 justify-end p-2 ">
-      {modalOpen && <LoginModal />}
-   
+    <header className="flex justify-end py-2 container ">   
       <div className="flex gap-2">
         {links.map(({ to, text, extraClass = '' }) => (
           <NavLink

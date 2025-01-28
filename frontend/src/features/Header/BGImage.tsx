@@ -7,7 +7,7 @@ interface BackgroundProps {
 const BGImage: React.FC<BackgroundProps> = ({ svgUrl }) => {
   return (
     <div
-      className="w-full h-[325px] bg-cover bg-no-repeat"
+      className="w-full h-[225px] bg-cover bg-no-repeat"
       style={{ backgroundImage: `url(${svgUrl})` }}
     ></div>
   );
