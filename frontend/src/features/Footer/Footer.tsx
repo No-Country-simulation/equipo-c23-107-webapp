@@ -33,20 +33,19 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-azulOscuro text-white py-6 px-6">
-      <div className="container flex mx-auto px-4">
-        <div className="flex w-6/12">
+    <footer className="flex justify-center bg-azulOscuro text-white pt-8 pb-2">
+      <div className="container flex flex-col items-center justify-center md:flex-row gap-4">
+        <div className="flex">
           <img
             src="/footer_person.png"
             alt="Footer Image"
-            className="w-72 h-72"
+            className="w-48 h-48 md:w-72 md:h-72"
           />
-          <div className="-ms-16 ">
+          <div className="md:-ms-16 ">
             <Logo />
           </div>
         </div>
-        <div className="bg-white w-1 h-70 me-12"></div>
-        <div className="flex flex-col space-y-4 w-6/12">
+        <div className="flex flex-col space-y-4 md:border-l-2 md:border-white p-4">
           {footerLinks.map((link, index) => (
             <FooterLink
               key={index}
@@ -55,7 +54,7 @@ const Footer: React.FC = () => {
               link={link.link}
             />
           ))}
-          <div className="flex justify-end gap-4">
+          <div className="flex justify-end gap-2">
             <img src="/Instagram.svg" alt="instagram" className="w-10 h-10" />
             <img src="/FB.svg" alt="FB" className="w-10 h-10" />
           </div>
