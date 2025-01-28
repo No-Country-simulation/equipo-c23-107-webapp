@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
       <div className="container flex mx-auto px-4">
         <div className="flex w-6/12">
           <img
-            src="../../../public/footer_person.png"
+            src="/footer_person.png"
             alt="Footer Image"
             className="w-72 h-72"
           />

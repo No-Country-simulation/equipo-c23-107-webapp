@@ -32,7 +32,7 @@ const Register = () => {
   return (
     <Layout>
       <div className="flex items-center justify-center min-h-screen ">
-        <div className="w-full flex flex-col items-center max-w-md p-8  rounded-lg  border-2 border-black">
+        <div className="w-full flex flex-col items-center max-w-md p-8  rounded-lg  border-2 border-black bg-white">
           <h2 className="mb-6 text-lg font-bold text-center text-gray-800">
             Ingresa tus datos:
           </h2>
