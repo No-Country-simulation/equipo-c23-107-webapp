@@ -1,5 +1,6 @@
 import express from "express";
 import imagesRouter from "./features/Images/Images.routes";
+import ingredientRouter from "./features/Ingredient/Ingredient.routes"
 import { AppDataSource } from "./config/dataSource";
 require("dotenv").config();
 
@@ -19,7 +20,7 @@ app.use(express.json());
 // Analizar solicitudes con datos de formulario en el cuerpo
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/v1", imagesRouter);
+app.use("/api/v1",imagesRouter,ingredientRouter,);
 
 export const server = () => {
   app.listen(3000, () => {
