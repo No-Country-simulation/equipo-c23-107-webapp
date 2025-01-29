@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn } from "typeorm";
+import { Images } from "../Images/Images.entity";  // Asegúrate de importar la entidad Images
 
 @Entity()
 export class User {
@@ -16,9 +17,10 @@ export class User {
 
   @Column({ type: "text" })
   token: string;
-
-  @Column({ type: "varchar", length: 255, nullable: true })
-  profileImage: string;
+ 
+  @ManyToOne(() => Images, { nullable: true })
+  @JoinColumn()
+  profileImage: Images;
 
   @CreateDateColumn({ type: "timestamp" })
   createdAt: Date;
