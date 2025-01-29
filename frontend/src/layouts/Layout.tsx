@@ -12,8 +12,8 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen grid grid-rows-layout ">
       <Header />
-      <div className="flex flex-wrap">
-        <div className="md:sticky md:top-0 md:max-h-screen border-r-4 ">
+      <div className="flex ">
+        <div className="lg:sticky lg:top-0 lg:max-h-screen border-r-4 ">
           <Sidebar />
         </div>
         <div className=" md:w-9/12 px-4 py-2  ">
