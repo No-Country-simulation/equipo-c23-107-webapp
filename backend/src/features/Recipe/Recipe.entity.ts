@@ -6,10 +6,13 @@ import {
   ManyToOne,
   ManyToMany,
   JoinTable,
+  OneToOne,
+  JoinColumn,
 } from "typeorm";
 import { User } from "../User/user.entity";
 import { Ingredient } from "../Ingredient/Ingredient.entity";
 import { Step } from "../Step/Step.entity";
+import { Images } from "../Images/Images.entity";
 
 @Entity()
 export class Recipe {
@@ -34,4 +37,8 @@ export class Recipe {
 
   @OneToMany(() => Step, (step) => step.recipes)
   steps: Step[];
+
+  @OneToOne(() => Images)
+  @JoinColumn()
+  imageURL: Images;
 }
