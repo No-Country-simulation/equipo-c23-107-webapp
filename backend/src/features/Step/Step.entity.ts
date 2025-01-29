@@ -19,7 +19,7 @@ export class Step {
   @Column({ type: "varchar", length: 255 })
   description: string;
 
-  @ManyToOne(() => Image, { nullable: true })
+  @ManyToOne(() => Images, { nullable: true })
   @JoinColumn()
   image?: Images;
 }
