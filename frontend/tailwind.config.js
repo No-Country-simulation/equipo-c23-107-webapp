@@ -18,6 +18,9 @@ export default {
       gridTemplateRows: {
         layout: 'auto 1fr auto',
       },
+      backgroundImage: {
+        'header-background': "url('/HeaderBackground.png')",
+      },
     },
   },
   plugins: [],

@@ -10,9 +10,9 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen grid grid-rows-layout ">
+    <div className="min-h-screen grid grid-rows-layout">
       <Header />
-      <div className="flex ">
+      <div className="flex flex-col lg:flex-row lg:gap-4 lg:px-4 lg:py-2 lg:mt-2">
         <div className="lg:sticky lg:top-0 lg:max-h-screen border-r-4 ">
           <Sidebar />
         </div>

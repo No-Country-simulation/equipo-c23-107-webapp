@@ -5,7 +5,7 @@ const Sidebar = () => {
   const categorias = ["Salsas", "Pastas", "Arroz", "Legumbres", "Panes", "Postres", "Bebidas", "Ensaladas", "Carnes", "Pescados"];
 
   return (
-    <aside className="flex flex-col items-center  h-full min-w-40 md:min-w-72 bg-white pb-4">
+    <aside className="flex flex-col  items-center  h-full min-w-40 md:min-w-72 bg-white pb-4">
       <Logo />
       <form className="w-full max-w-md rounded-lg flex flex-col items-center space-y-4">
         <input
