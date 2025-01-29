@@ -14,7 +14,7 @@ const Header = () => {
 
  const links = Headerlinks(loggedIn); 
   return (
-    <header className="flex justify-end p-4 bg-header-background">   
+    <header className="flex justify-end p-4 bg-header-background  ">   
       <div className="flex gap-2">
         {links.map(({ to, text, extraClass = '' }) => (
           <NavLink
