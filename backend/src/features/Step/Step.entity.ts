@@ -2,7 +2,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  OneToOne,
   ManyToOne,
   JoinColumn,
 } from "typeorm";
@@ -17,10 +16,10 @@ export class Step {
   @ManyToOne(() => Recipe, (recipe: Recipe) => recipe.steps)
   recipes: Recipe;
 
-  @Column({ type: "varchar", length: 100 })
+  @Column({ type: "varchar", length: 255 })
   description: string;
 
-  @OneToOne(() => Images)
+  @ManyToOne(() => Image, { nullable: true })
   @JoinColumn()
-  imageURL: Images;
+  image?: Images;
 }
