@@ -8,6 +8,6 @@ export class Images {
   @Column({ type: "varchar", length: 100 })
   URL: string;
 
-  @Column({ type: "varchar", length: 100 })
+  @Column({ type: "varchar", length: 100, nullable: true })
   title: string;
 }
