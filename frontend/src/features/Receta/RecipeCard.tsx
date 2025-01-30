@@ -17,7 +17,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
       <img
         src={recipe.image}
         alt={recipe.title}
-        className="w-[450px] h-[250px] object-cover rounded-lg"
+        className="w-[350px] h-[250px] object-cover rounded-lg"
       />
 
       <div className="ml-6 flex flex-col justify-center">
