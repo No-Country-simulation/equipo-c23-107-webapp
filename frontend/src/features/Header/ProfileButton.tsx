@@ -60,10 +60,10 @@ const ProfileButton: React.FC<ProfileButtonProps> = ({ userImage }) => {
         </div>
 
         <Link
-          to="/perfil"
+          to="/profile"
           className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
         >
-          Perfil de Usuario
+          ProfilePage
         </Link>
         <Link
           to="/mis-recetas"
