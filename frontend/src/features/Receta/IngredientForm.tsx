@@ -127,9 +127,7 @@ const IngredientForm: React.FC = () => {
 
   return (
     <div>
-      <h2 className="text-azulOscuro text-3xl font-bold mb-4 -mt-9 ms-4">
-        Crea aquí tu Receta
-      </h2>
+      <h1 className="text-3xl font-bold mb-6">Carga aquí tu receta</h1>
       <form
         onSubmit={handleSubmit}
         className="p-6 bg-white rounded-md shadow-md"
