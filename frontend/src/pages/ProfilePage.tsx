@@ -12,12 +12,10 @@ const ProfilePage = () => {
   return (
     <Layout>
       {user && (
-        <div className='-mt-16 '>
-          <img src={user.imgThumbnail} alt={user.name} className='mx-auto' />
-          <h1>{user.name}</h1>
-          <p>{user.description}</p>
-          <p>{user.countRecipes} recetas</p>
-          <p>{user.country}</p>
+        <div className="-mt-16 ">
+          <img src={user.imgThumbnail} alt={user.name} className="mx-auto" />
+          <p className="text-center">"{user.description}"</p>
+          <p className='text-center'>{user.name} - {user.countRecipes} recetas cargadas - {user.country}</p>
         </div>
       )}
     </Layout>
