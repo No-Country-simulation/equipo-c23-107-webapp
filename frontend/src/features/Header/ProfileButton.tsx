@@ -1,15 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaTimes } from "react-icons/fa";
+import { useStore } from "exome/react";
+import { authStore } from "../../core/store/AuthStore";
 
 interface ProfileButtonProps {
   userImage?: string;
 }
 
 const ProfileButton: React.FC<ProfileButtonProps> = ({ userImage }) => {
+  const { logout } = useStore(authStore);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
   /* Menu toggle */
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -72,9 +74,8 @@ const ProfileButton: React.FC<ProfileButtonProps> = ({ userImage }) => {
           Mis Recetas
         </Link>
         <button
-          onClick={() => console.log("Cerrar Sesión")}
-          className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
-        >
+           onClick={ logout }
+          className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100">
           Cerrar Sesión
         </button>
       </div>
