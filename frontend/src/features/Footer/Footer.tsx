@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="flex justify-center bg-azulOscuro text-white pt-8 pb-2">
+    <footer className="flex justify-center bg-header-background text-white pt-8 pb-2">
       <div className="container flex flex-col items-center justify-center md:flex-row gap-4">
         <div className="flex">
           <img
