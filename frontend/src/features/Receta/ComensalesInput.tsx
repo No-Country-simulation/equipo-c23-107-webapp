@@ -24,14 +24,14 @@ const ComensalesInput: React.FC<ComensalesInputProps> = ({
 
   return (
     <div className="mb-4">
-      <label className="block text-gris font-semibold mb-2">
+      <label className="block text-balck font-semibold mb-2">
         ¿Cuántos comensales?
       </label>
       <input
         type="number"
         value={value}
         onChange={handleChange}
-        className="border border-azulClaro rounded-md p-2 w-full focus:outline-none focus:ring focus:ring-azulOscuro"
+        className="rounded-md p-2 w-full focus:outline-none focus:ring focus:ring-azulOscuro bg-azulClaro"
       />
       {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </div>

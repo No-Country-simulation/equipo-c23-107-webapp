@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
-import Header from '../components/Header';
+import Header from '../features/Header/Header';
 import Sidebar from '../components/Sidebar';
+import Footer from '../features/Footer/Footer';
+import BGImage from '../features/Header/BGImage';
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,22 +11,19 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen grid grid-rows-layout">
-        <Header/>
-        <div className="flex flex-wrap">
-          <div className="w-5/12 md:w-3/12">
-            <div className="sticky top-0 max-h-screen">
-                <Sidebar />
-            </div>
-          </div>
-          <div className="w-7/12 md:w-9/12">
-            <main>{children}</main>
-          </div>
+      <Header />
+      <div className="flex flex-col lg:flex-row ">
+        <div className="lg:sticky lg:top-0 lg:max-h-screen border-r-4  ">
+          <Sidebar />
         </div>
-        <footer className="flex-1">
-          <p>footer</p>
-        </footer>
+        <div className=" md:w-10/12 ">
+          <BGImage svgUrl="/fondo1.svg" />
+          <main>{children}</main>
+        </div>
       </div>
-  );
+      <Footer />
+    </div>
+  );  
 };
 
 export default Layout;

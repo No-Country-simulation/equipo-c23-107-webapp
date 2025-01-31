@@ -3,24 +3,36 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import RecetaPage from "./pages/RecetaPage";
 import FeedPage from "./pages/FeedPage";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import RecipePreview from "./pages/RecipePreview";
+import NotFoundPage from "./pages/NotFoundPage";
+import MisRecetas from "./pages/MisRecetas";
+import RecetaDetail from "./pages/RecetaDetail";
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          {/* Página principal */}
-          <Route path="/" element={<HomePage />} />
+    <Router>
+      <Routes>
+        {/* Página principal */}
+        <Route path="/" element={<HomePage />} />
 
-          {/* Autenticación */}
+        {/* Autenticación */}
 
-          {/* Usuario autenticado */}
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/create-recipe" element={<RecetaPage />} />
-          <Route path="/feed" element={<FeedPage />} />
-        </Routes>
-      </Router>
-    </>
+        {/* Usuario autenticado */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/create-recipe" element={<RecetaPage />} />
+        <Route path="/vista-previa" element={<RecipePreview />} />
+        <Route path="/mis-recetas" element={<MisRecetas />} />
+        <Route path="/recipe/:id" element={<RecetaDetail />} />
+        <Route path="/feed" element={<FeedPage />} />
+
+        {/* Ruta para manejar 404 */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Router>
   );
 }
 

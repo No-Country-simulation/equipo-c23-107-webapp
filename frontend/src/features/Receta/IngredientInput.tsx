@@ -21,7 +21,7 @@ const IngredientInput: React.FC<IngredientInputProps> = ({
     <div className="flex mt-2 items-center mb-4">
       <label
         htmlFor={`ingredient-${number}`}
-        className="mr-4 text-gris font-semibold"
+        className="mr-2  text-black font-semibold"
       >
         Ing {number}:
       </label>
@@ -31,20 +31,20 @@ const IngredientInput: React.FC<IngredientInputProps> = ({
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
         placeholder="Ingrediente"
-        className="flex-1 border border-azulClaro rounded-md p-2 focus:outline-none focus:ring focus:ring-azulOscuro"
+        className="flex-1 bg-azulClaro placeholder:text-gris rounded-md p-2 focus:outline-none focus:ring focus:ring-azulOscuro"
       />
       <input
         type="text"
         value={quantity}
         onChange={(e) => onQuantityChange(e.target.value)}
         placeholder="Cantidad"
-        className="ml-2 w-24 border border-azulClaro rounded-md p-2 focus:outline-none focus:ring focus:ring-azulOscuro"
+        className="ml-2 w-24 bg-azulClaro  placeholder:text-gris rounded-md p-2 focus:outline-none focus:ring focus:ring-azulOscuro"
       />
       {onDelete && (
         <button
           type="button"
           onClick={onDelete}
-          className="ml-4 text-white bg-amarilloOscuro hover:bg-amarilloClaro px-4 py-2 rounded"
+          className="ml-2 text-black border border-azulClaro hover:bg-amarilloClaro hover:text-black px-4 py-2 rounded"
         >
           Eliminar
         </button>

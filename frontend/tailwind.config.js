@@ -12,9 +12,19 @@ export default {
         amarilloClaro: '#FFEEC1',
         amarilloLogo: '#F6E77C',
         cremaClaro: '#FFFAED',
+        celesteBoton: '#F1F6FD',
+        botonPresionado: '#2F75CA',
+        celestePopup: '#E2EFFF',
       },
       gridTemplateRows: {
         layout: 'auto 1fr auto',
+      },
+      backgroundImage: {
+        'header-background': "url('/HeaderBackground.png')",
+      },
+      fontFamily: {
+        puritan: ['Puritan', 'serif'], // Fuente normal
+        puritanItalic: ['PuritanItalic', 'serif'], // Fuente en itálica (si es una fuente separada)
       },
     },
   },

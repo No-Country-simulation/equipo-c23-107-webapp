@@ -9,9 +9,11 @@ const TiempoInput: React.FC<TiempoInputProps> = ({ onChange }) => {
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    setError(null); // Limpiar error mientras se escribe
-    onChange(e.target.value); // Notificar al padre del cambio
+    const newValue = e.target.value;
+
+    setValue(newValue);
+    setError(null);
+    onChange(newValue);
   };
 
   const handleBlur = () => {
@@ -22,7 +24,7 @@ const TiempoInput: React.FC<TiempoInputProps> = ({ onChange }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor="tiempo-input" className="font-medium text-gris">
+      <label htmlFor="tiempo-input" className="font-medium text-black">
         Tiempo total:
       </label>
       <input
@@ -32,7 +34,7 @@ const TiempoInput: React.FC<TiempoInputProps> = ({ onChange }) => {
         onChange={handleChange}
         onBlur={handleBlur}
         placeholder="Ej: 30 minutos, 1 hora"
-        className={`p-2 mb-2 border rounded-md ${
+        className={`p-2 mb-2 bg-azulClaro rounded-md  placeholder:text-gris ${
           error
             ? "border-red-500"
             : "border-gray-300 focus:ring-2 focus:ring-azulClaro"
