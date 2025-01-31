@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Layout from '../layouts/Layout';
 
 const user = {
@@ -12,10 +13,17 @@ const ProfilePage = () => {
   return (
     <Layout>
       {user && (
-        <div className="-mt-16 ">
+        <div className="-mt-16 flex flex-col justify-center items-center">
           <img src={user.imgThumbnail} alt={user.name} className="mx-auto" />
-          <p className="text-center">"{user.description}"</p>
-          <p className='text-center'>{user.name} - {user.countRecipes} recetas cargadas - {user.country}</p>
+          <div className='max-w-2xl'>
+            <p className="text-center text-xl">"{user.description}"</p>
+            <p className="text-center text-2xl">
+              {user.name} - {user.countRecipes} recetas cargadas - {user.country}
+            </p>
+          </div>
+          <Link to="/edit-profile">
+            <img src="/botonEditar.png" alt="Editar perfil" className="mt-4 w-14" />
+          </Link>
         </div>
       )}
     </Layout>
