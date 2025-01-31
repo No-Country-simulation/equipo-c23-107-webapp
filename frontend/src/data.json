@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "title": "Paella Valenciana",
     "recipeText": "La paella valenciana es un plato tradicional de la Comunidad Valenciana, España.",
     "ingredients": ["arroz", "pollo", "conejo", "garrofó", "tomate", "azafrán"],
@@ -32,6 +33,7 @@
     "tags": ["salado", "arroz", "Europa"]
   },
   {
+    "id": 2,
     "title": "Ceviche Peruano",
     "recipeText": "El ceviche es un plato típico de la gastronomía peruana, hecho a base de pescado fresco marinado en limón.",
     "ingredients": [
@@ -67,6 +69,7 @@
     "tags": ["liviano", "pescado", "Peru", "fusion"]
   },
   {
+    "id": 3,
     "title": "Tacos al Pastor",
     "recipeText": "Los tacos al pastor son un platillo mexicano hecho con carne de cerdo marinada y piña.",
     "ingredients": [
@@ -102,6 +105,7 @@
     "tags": ["carne", "picante", "salado"]
   },
   {
+    "id": 4,
     "title": "Feijoada",
     "recipeText": "La feijoada es un plato brasileño hecho con frijoles negros y carnes variadas.",
     "ingredients": [
@@ -133,6 +137,7 @@
     "tags": ["arroz", "carne", "Brazil", "salado"]
   },
   {
+    "id": 5,
     "title": "Empanadas Argentinas",
     "recipeText": "Las empanadas argentinas son un plato típico relleno de carne, huevo y aceitunas.",
     "ingredients": [

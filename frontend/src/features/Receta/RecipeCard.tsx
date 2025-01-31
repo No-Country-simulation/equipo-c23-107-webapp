@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Recipe {
+  id: number;
   title: string;
   recipeText: string;
   image: string;
@@ -12,6 +14,8 @@ interface RecipeCardProps {
 }
 
 const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex border border-gray-300 rounded-lg p-4 shadow-lg">
       <img
@@ -33,7 +37,10 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
 
         {/* Boton Ir a La Receta */}
 
-        <button className="mt-4 flex items-center text-black  hover:bg-azulOscuro">
+        <button
+          onClick={() => navigate(`/recipe/${recipe.id}`)}
+          className="mt-4 text-black flex items-center hover:underline"
+        >
           Ir a la receta
           <svg
             className="ml-2 w-5 h-5"

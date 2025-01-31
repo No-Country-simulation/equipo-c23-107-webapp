@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import RecipePreview from "./pages/RecipePreview";
 import NotFoundPage from "./pages/NotFoundPage";
 import MisRecetas from "./pages/MisRecetas";
+import RecetaDetail from "./pages/RecetaDetail";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/create-recipe" element={<RecetaPage />} />
         <Route path="/vista-previa" element={<RecipePreview />} />
         <Route path="/mis-recetas" element={<MisRecetas />} />
+        <Route path="/recipe/:id" element={<RecetaDetail />} />
         <Route path="/feed" element={<FeedPage />} />
 
         {/* Ruta para manejar 404 */}
