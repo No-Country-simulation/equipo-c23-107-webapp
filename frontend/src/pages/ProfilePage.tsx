@@ -15,7 +15,6 @@ const ProfilePage = () => {
   useEffect(() => {
     const loadData = async () => {
       const result = await fetchData('/data.json');
-      console.log('🚀 ~ loadData ~ result:', result);
 
       if (result.error) {
         setError(result.error);
