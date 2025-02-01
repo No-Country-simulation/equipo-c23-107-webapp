@@ -1,45 +1,58 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../layouts/Layout';
 import ResumeMyRecipe from '../features/Receta/ResumeMyRecipe';
+import { User } from '../core/interface/userInterface';
+import { fetchData } from '../api/fetchData';
 import { Recipe } from '../core/interface/RecipeInterface';
-import { useEffect, useState } from 'react';
-
-const user = {
-  name: 'Sarah Johnson',
-  imgThumbnail: 'SarahJohnson.png',
-  description: 'Cada receta tiene su magia: es un pedacito de historia que vuelve a cobrar vida en la mesa.',
-  countRecipes: 4,
-  country: 'Uruguay',
-};
 
 const ProfilePage = () => {
   const [recipes, setRecipes] = useState<Recipe[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    fetch('../../src/data.json')
-      .then((response) => response.json())
-      .then((data) => setRecipes(data))
-      .catch(() => {
-        console.error('Error loading recipes');
-        setError('Ocurrió un error al cargar las recetas. Inténtalo nuevamente más tarde.');
-        setRecipes([]);
-      });
+    const loadData = async () => {
+      const result = await fetchData('/data.json');
+      console.log('🚀 ~ loadData ~ result:', result);
+
+      if (result.error) {
+        setError(result.error);
+      } else {
+        if (result.data) {
+          setRecipes(result.data.recipes);
+          setUser(result.data.user);
+        }
+      }
+
+      setLoading(result.loading);
+    };
+
+    loadData();
   }, []);
 
   return (
     <Layout>
       <div className="-mt-16 flex flex-col justify-center items-center">
-        <img src={user.imgThumbnail} alt={user.name} className="mx-auto" />
-        <div className="max-w-2xl">
-          <p className="text-center text-xl">"{user.description}"</p>
-          <p className="text-center text-2xl">
-            {user.name} - {user.countRecipes} recetas cargadas - {user.country}
-          </p>
-        </div>
-        <Link to="/edit-profile">
-          <img src="/botonEditar.png" alt="Editar perfil" className="mt-4 w-14" />
-        </Link>
+        {user ? (
+          <>
+            <img src={user.imgThumbnail} alt={user.name} className="mx-auto" />
+            <div className="max-w-2xl">
+              <p className="text-center text-xl">"{user.description}"</p>
+              <p className="text-center text-2xl">
+                {user.name} - {user.countRecipes} recetas cargadas - {user.country}
+              </p>
+            </div>
+            <Link to="/edit-profile">
+              <img src="/botonEditar.png" alt="Editar perfil" className="mt-4 w-14" />
+            </Link>
+          </>
+        ) : (
+          <div>
+            <p className="text-center text-red-500 mt-4">No se pudo encontrar al usuario</p>
+          </div>
+        )}
         <div className="bg-celestePopup w-full min-h-40 flex flex-col items-center justify-center my-4">
           <p className="text-2xl max-w-2xl text-center pt-2">
             Aquí puedes cargar tus recetas y compartirlas a otros usuarios de Las recetas de la Nona:
@@ -51,18 +64,15 @@ const ProfilePage = () => {
             Añadir Nueva Receta
           </Link>
         </div>
-
-        {/* Mostrar mensaje de error si ocurre */}
         {error && <p className="text-center text-red-500 mt-4">{error}</p>}
-
-        {recipes === null ? (
+        {loading ? (
           <p className="text-center text-gray-500 mt-10">Cargando recetas...</p>
-        ) : recipes.length > 0 ? (
+        ) : recipes && recipes.length > 0 ? (
           <div>
             <div className="flex justify-between items-center">
               <h1 className="text-3xl font-bold">Mis Recetas</h1>
             </div>
-            <div className="grid grid-cols-2 gap-6 my-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 my-6 flex-wrap">
               {recipes.map((recipe, index) => (
                 <ResumeMyRecipe key={index} {...recipe} />
               ))}
