@@ -15,6 +15,7 @@ export default {
         celesteBoton: '#F1F6FD',
         botonPresionado: '#2F75CA',
         celestePopup: '#E2EFFF',
+        fondoCeleste: '#F1F6FD',
       },
       gridTemplateRows: {
         layout: 'auto 1fr auto',
