@@ -16,30 +16,34 @@ const Header = () => {
   const links = Headerlinks(loggedIn);
 
   return (
-    <header className="flex justify-between items-center p-4 bg-header-background">
+    <header className="p-4 bg-header-background">
       {/* Para usuario logueado */}
-      {loggedIn && <HomeButton />}
+      <div className="flex justify-between items-center">
+        {loggedIn && <HomeButton />}
+        {loggedIn && <ProfileButton />}
+      </div>
 
       {/* Si no esta logueado */}
-      {!loggedIn && (
-        <div className="flex gap-2">
-          {links.map(({ to, text, extraClass = "" }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                `text-center py-2 min-w-44 rounded-lg ${extraClass} ${
-                  isActive ? "font-bold border-b-2 border-blue-500" : ""
-                }`
-              }
-            >
-              {text}
-            </NavLink>
-          ))}
-        </div>
-      )}
 
-      {loggedIn && <ProfileButton />}
+      <div className="flex justify-end items-center">
+        {!loggedIn && (
+          <div className="flex gap-2">
+            {links.map(({ to, text, extraClass = "" }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `text-center hover:bg-celesteBoton hover:text-black py-2 min-w-44 rounded-lg ${extraClass} ${
+                    isActive ? "font-bold border-b-2 border-blue-500" : ""
+                  }`
+                }
+              >
+                {text}
+              </NavLink>
+            ))}
+          </div>
+        )}
+      </div>
     </header>
   );
 };
