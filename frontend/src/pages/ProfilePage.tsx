@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Layout from '../layouts/Layout';
-import ResumeMyRecipe from '../features/Receta/ResumeMyRecipe';
-import { User } from '../core/interface/userInterface';
-import { fetchData } from '../api/fetchData';
-import { Recipe } from '../core/interface/RecipeInterface';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Layout from "../layouts/Layout";
+import ResumeMyRecipe from "../features/Receta/ResumeMyRecipe";
+import { User } from "../core/interface/userInterface";
+import { fetchData } from "../api/fetchData";
+import { Recipe } from "../core/interface/RecipeInterface";
 
 const ProfilePage = () => {
   const [recipes, setRecipes] = useState<Recipe[] | null>(null);
@@ -14,7 +14,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      const result = await fetchData('/data.json');
+      const result = await fetchData("/data.json");
 
       if (result.error) {
         setError(result.error);
@@ -36,29 +36,41 @@ const ProfilePage = () => {
       <div className="-mt-16 flex flex-col justify-center items-center">
         {user ? (
           <>
-            <img src={user.imgThumbnail} alt={user.name} className="mx-auto" />
+            <img
+              src={user.imgThumbnail}
+              alt={user.name}
+              className="mx-auto mb-4"
+            />
             <div className="max-w-2xl">
               <p className="text-center text-xl">"{user.description}"</p>
               <p className="text-center text-2xl">
-                {user.name} - {user.countRecipes} recetas cargadas - {user.country}
+                {user.name} - {user.countRecipes} recetas cargadas -{" "}
+                {user.country}
               </p>
             </div>
             <Link to="/edit-profile">
-              <img src="/botonEditar.png" alt="Editar perfil" className="mt-4 w-14" />
+              <img
+                src="/botonEditar.png"
+                alt="Editar perfil"
+                className="mt-4 w-14"
+              />
             </Link>
           </>
         ) : (
           <div>
-            <p className="text-center text-red-500 mt-4">No se pudo encontrar al usuario</p>
+            <p className="text-center text-red-500 mt-4">
+              No se pudo encontrar al usuario
+            </p>
           </div>
         )}
         <div className="bg-celestePopup w-full min-h-40 flex flex-col items-center justify-center my-4">
           <p className="text-2xl max-w-2xl text-center pt-2">
-            Aquí puedes cargar tus recetas y compartirlas a otros usuarios de Las recetas de la Nona:
+            Aquí puedes cargar tus recetas y compartirlas a otros usuarios de
+            Las recetas de la Nona:
           </p>
           <Link
             to="/create-recipe"
-            className="bg-celesteBoton flex items-center justify-center rounded-lg px-4 py-3 text-gray-700 hover:bg-amarilloOscuro transition-all max-w-[200px]"
+            className="bg-azulOscuro flex items-center justify-center rounded-lg px-4 py-3 mt-2 text-celesteBoton hover:bg-amarilloOscuro transition-all max-w-[200px]"
           >
             Añadir Nueva Receta
           </Link>
@@ -79,8 +91,14 @@ const ProfilePage = () => {
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center mt-6">
-            <p className="text-gray-600 text-lg font-semibold mb-4">¡Vaya! Todavía no tienes recetas cargadas.</p>
-            <img src="/abuela.png" alt="No hay recetas" className="w-60 h-60 mb-4" />
+            <p className="text-gray-600 text-lg font-semibold mb-4">
+              ¡Vaya! Todavía no tienes recetas cargadas.
+            </p>
+            <img
+              src="/abuela.png"
+              alt="No hay recetas"
+              className="w-60 h-60 mb-4"
+            />
           </div>
         )}
       </div>

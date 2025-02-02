@@ -26,7 +26,9 @@ const RecipeDetail = () => {
         <h3 className="text-lg font-semibold mb-2">Ingredientes:</h3>
         <ul className="list-disc list-inside mb-4">
           {recipe.ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
+            <li key={index}>
+              {ingredient.nombre} - {ingredient.cantidad}
+            </li>
           ))}
         </ul>
 

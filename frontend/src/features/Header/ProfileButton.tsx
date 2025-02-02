@@ -47,26 +47,27 @@ const ProfileButton: React.FC<ProfileButtonProps> = ({ userImage }) => {
       {/* Menú desplegable con animación */}
       <div
         ref={menuRef}
-        className={`absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg overflow-hidden z-10 transition-all duration-300 ${
+        className={`absolute top-0.5 right-0 mt-2 w-48 bg-celesteBoton shadow-lg rounded-lg overflow-hidden z-10 transition-all duration-300 ${
           isOpen
             ? "opacity-100 scale-100"
             : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
         {/* Botón de cierre */}
-        <div className="flex justify-between items-center px-4 py-2 border-b">
-          <span className="text-gray-700 font-semibold">Opciones</span>
+        <div className="flex justify-between items-center pe-4 py-2">
+          {/* <span className="text-gray-700 font-semibold">Opciones</span> */}
+
+          <Link
+            to="/profile"
+            className="block ps-4 py-2 text-gray-700 hover:bg-gray-100"
+          >
+            Mi perfil
+          </Link>
           <button onClick={() => setIsOpen(false)}>
             <FaTimes className="text-gray-500 hover:text-red-500" />
           </button>
         </div>
 
-        <Link
-          to="/profile"
-          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-        >
-          Mi perfil
-        </Link>
         <Link
           to="/mis-recetas"
           className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
@@ -74,8 +75,9 @@ const ProfileButton: React.FC<ProfileButtonProps> = ({ userImage }) => {
           Mis Recetas
         </Link>
         <button
-           onClick={ logout }
-          className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100">
+          onClick={logout}
+          className="block w-full text-left px-4  py-4 text-red-500 hover:bg-gray-100"
+        >
           Cerrar Sesión
         </button>
       </div>
