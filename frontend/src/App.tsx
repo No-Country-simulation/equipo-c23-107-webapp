@@ -9,10 +9,12 @@ import RecipePreview from "./pages/RecipePreview";
 import NotFoundPage from "./pages/NotFoundPage";
 import MisRecetas from "./pages/MisRecetas";
 import RecetaDetail from "./pages/RecetaDetail";
+import AuthProvider from "./components/AuthProvider";
 
 function App() {
   return (
     <Router>
+      <AuthProvider />
       <Routes>
         {/* Página principal */}
         <Route path="/" element={<HomePage />} />

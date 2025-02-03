@@ -7,6 +7,11 @@ class AuthStore extends Exome {
   public token: string = "";
   public loggedIn: boolean = true;
   public modalOpen: boolean = false;
+  private redirectToHome: (() => void) | null = null;
+
+  public setRedirectCallback(callback: () => void) {
+    this.redirectToHome = callback;
+  }
 
   public setToken(token: string) {
     this.token = token;
@@ -70,6 +75,7 @@ class AuthStore extends Exome {
     } else {
       this.setToken("");
       this.setLoggedIn(false);
+      if (this.redirectToHome) this.redirectToHome();
     }
   }
 
