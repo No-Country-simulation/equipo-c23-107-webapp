@@ -2,7 +2,7 @@ import envs from '@/config/envs';
 import { NextFunction, Request, Response } from 'express';
 import formidable, { Files } from 'formidable';
 import fs from 'fs';
-import path from 'path';
+import path from 'path'; 
 
 // Ruta para manejar la subida de archivos
 const FileUpload = (req: Request, res: Response, next: NextFunction) => {

@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
   // username: process.env.SUPABASE_USER,
   // password: process.env.SUPABASE_PASSWORD,
   //database: process.env.SUPABASE_DB,
-  entities: ["src/**/*.entity.ts"],
+  entities: ["src/features/*/*.entity.ts"],
   //migrations: ["src/migrations/*.ts"],
   logging: false,
   synchronize: true,
