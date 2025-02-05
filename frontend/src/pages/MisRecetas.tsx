@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import RecipeCard from "./../features/Receta/RecipeCard";
 import Layout from "../layouts/Layout";
 import { Link } from "react-router-dom";
-
-interface Recipe {
-  title: string;
-  recipeText: string;
-  image: string;
-  tags: string[];
-}
+import { Recipe } from "../core/interface/RecipeInterface";
 
 const MisRecetas: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[] | null>(null); // null indica carga
