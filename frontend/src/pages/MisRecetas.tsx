@@ -8,7 +8,7 @@ const MisRecetas: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[] | null>(null); // null indica carga
 
   useEffect(() => {
-    fetch("../../src/data.json")
+    fetch("/data.json")
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((error) => {
