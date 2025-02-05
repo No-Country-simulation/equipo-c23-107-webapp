@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import recipesData from "../data.json";
+import recipesData from "../../public/recetas.json";
 import Layout from "../layouts/Layout";
 import { Link } from "react-router-dom";
 
