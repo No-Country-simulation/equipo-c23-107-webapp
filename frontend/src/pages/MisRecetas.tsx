@@ -8,7 +8,7 @@ const MisRecetas: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[] | null>(null); // null indica carga
 
   useEffect(() => {
-    fetch("/recetas.json")
+    fetch("../../src/recetas.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
